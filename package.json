@@ -1,0 +1,10 @@
+{
+	"private": true,
+	"author": "Enzo Innocenzi",
+	"license": "MIT",
+	"preset": "preset.ts",
+	"devDependencies": {
+		"apply": "^0.2",
+		"laravel-vite": "^0.0.1-dev.5"
+	}
+}
