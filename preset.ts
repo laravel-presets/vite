@@ -10,8 +10,7 @@ Preset.edit('.gitignore')
 
 Preset.edit('resources/views/welcome.blade.php')
 	.addAfter('<title>', [
-		'@vite',
-		'@vite("main")'
+		'@vite'
 	]);
 
 Preset.group(preset => {
