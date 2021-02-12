@@ -1,6 +1,7 @@
-import { Preset } from "apply";
+import { Preset } from 'apply';
 
-Preset.setName("laravel-vite");
+Preset.setName('laravel-vite');
+Preset.option('install', true);
 
 Preset.extract();
 Preset.delete(['resources/js', 'webpack.mix.js']);
@@ -33,5 +34,5 @@ Preset.group(preset => {
 Preset.editPhpPackages()
 	.add('innocenzi/laravel-vite', '^0.0.2');
 
-Preset.installDependencies('php');
-Preset.installDependencies('node');
+Preset.installDependencies('php').ifOption('install');
+Preset.installDependencies('node').ifOption('install');
