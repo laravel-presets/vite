@@ -1,15 +1,17 @@
-import { Preset } from 'apply';
+import { Preset, color } from 'apply';
 
 Preset.setName('laravel-vite');
 Preset.option('install', true);
 
 Preset.extract();
-Preset.delete(['resources/js', 'webpack.mix.js']);
+Preset.delete(['resources/js', 'webpack.mix.js']).withTitle('Removing Mix...');
 
 Preset.edit('.gitignore')
-	.addBefore('/public/hot', '/public/build');
+	.withTitle('Updating .gitignore...')
+	.addBefore('/public/hot', '/public/build')
 
 Preset.edit('resources/views/welcome.blade.php')
+	.withTitle('Updating welcome.blade.php...')
 	.addAfter('<title>', [
 		'@vite'
 	]);
@@ -29,11 +31,22 @@ Preset.group(preset => {
 				serve: 'vite preview'
 			}
 		});
-});
+})
+.withTitle('Updating package.json...');
 
 Preset.editPhpPackages()
 	.add('innocenzi/laravel-vite', '^0.0.2')
-	.withoutTitle();
+	.withTitle('Updating composer.json...');
 
-Preset.installDependencies('php').ifOption('install');
-Preset.installDependencies('node').ifOption('install');
+Preset.installDependencies('php')
+	.ifOption('install')
+	.withTitle('Updating PHP dependencies...');
+
+Preset.installDependencies('node')
+	.ifOption('install')
+	.withTitle('Updating Node dependencies...');
+
+Preset.instruct([
+	`Run the development server with ${color.magenta('yarn dev')}`,
+	`Edit your scripts in ${color.magenta('resources/scripts')}`,
+]).withHeading("What's next?")
