@@ -18,7 +18,7 @@ Preset.group(preset => {
 	preset.editNodePackages()
 		.remove('laravel-mix')
 		.addDev('vite', '^2.0.0-beta.66')
-		.addDev('laravel-vite', '^0.0.1-dev.5')
+		.addDev('laravel-vite', '^0.0.2')
 		.delete(() => ['development', 'watch', 'watch-poll', 'hot', 'prod', 'production'].map(command => `scripts.${command}`))
 
 	preset.editNodePackages()
@@ -32,7 +32,8 @@ Preset.group(preset => {
 });
 
 Preset.editPhpPackages()
-	.add('innocenzi/laravel-vite', '^0.0.2');
+	.add('innocenzi/laravel-vite', '^0.0.2')
+	.withoutTitle();
 
 Preset.installDependencies('php').ifOption('install');
 Preset.installDependencies('node').ifOption('install');
