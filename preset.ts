@@ -35,7 +35,7 @@ Preset.group(preset => {
 .withTitle('Updating package.json...');
 
 Preset.editPhpPackages()
-	.add('innocenzi/laravel-vite', '^0.0.2')
+	.add('innocenzi/laravel-vite', '^0.0.5')
 	.withTitle('Updating composer.json...');
 
 Preset.installDependencies('php')
