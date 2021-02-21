@@ -54,7 +54,7 @@ Preset.group((preset) => {
 }).ifOption('vue').withTitle('Installing Vue...')
 
 Preset.editPhpPackages()
-	.add('innocenzi/laravel-vite', '^0.0.5')
+	.add('innocenzi/laravel-vite', '^0.0.7')
 	.withTitle('Updating composer.json...');
 
 Preset.installDependencies('php')
