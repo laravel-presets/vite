@@ -2,20 +2,25 @@ import { Preset, color } from 'apply';
 
 Preset.setName('laravel-vite');
 Preset.option('install', true);
+Preset.option('vue', true);
 
-Preset.extract();
-Preset.delete(['resources/js', 'webpack.mix.js']).withTitle('Removing Mix...');
+Preset.extract('default');
+
+Preset.delete(['resources/js', 'webpack.mix.js'])
+	.withoutTitle()
 
 Preset.edit('.gitignore')
-	.withTitle('Updating .gitignore...')
+	.withoutTitle()
 	.addBefore('/public/hot', '/public/build')
 
 Preset.edit('resources/views/welcome.blade.php')
-	.withTitle('Updating welcome.blade.php...')
+	.ifNotOption('vue')
+	.withoutTitle()
 	.addAfter('<title>', [
 		'@vite'
 	]);
 
+// Common packages
 Preset.group(preset => {
 	preset.editNodePackages()
 		.remove('laravel-mix')
@@ -33,6 +38,20 @@ Preset.group(preset => {
 		});
 })
 .withTitle('Updating package.json...');
+
+// Vue
+Preset.group((preset) => {
+	preset.extract('vue')
+	preset.delete('resources/views/welcome.blade.php')
+	
+	preset.edit('routes/web.php')
+		.update((content) => content.replace('welcome', 'app'))
+		
+	preset.editNodePackages()
+		.add('vue', '^3.0.5')
+		.addDev('@vue/compiler-sfc', '^3.0.5')
+		.addDev('@vitejs/plugin-vue', '^1.1.4')
+}).ifOption('vue').withTitle('Installing Vue...')
 
 Preset.editPhpPackages()
 	.add('innocenzi/laravel-vite', '^0.0.5')
