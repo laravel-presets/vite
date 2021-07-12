@@ -38,7 +38,11 @@
 
 <p align="center">
   <br />
+  <br />
   ·
+  <br />
+  <br />
+  <img src="https://i.imgur.com/Vz70DCA.gif" />
   <br />
   <br />
   <sub>Built with ❤︎ by <a href="https://github.com/enzoinnocenzi">Enzo Innocenzi</a>
