@@ -1,7 +1,7 @@
 import { Preset, color } from 'apply';
 
 Preset.setName('laravel-vite');
-Preset.option('install', true);
+Preset.option('install', false);
 Preset.option('vue', true);
 
 Preset.extract('default');
@@ -24,8 +24,8 @@ Preset.edit('resources/views/welcome.blade.php')
 Preset.group(preset => {
 	preset.editNodePackages()
 		.remove('laravel-mix')
-		.addDev('vite', '^2.0.1')
-		.addDev('laravel-vite', '^0.0.7')
+		.addDev('vite', '^2.4.1')
+		.addDev('laravel-vite', '^0.0.10')
 		.delete(() => ['development', 'watch', 'watch-poll', 'hot', 'prod', 'production'].map(command => `scripts.${command}`))
 
 	preset.editNodePackages()
@@ -48,13 +48,13 @@ Preset.group((preset) => {
 		.update((content) => content.replace('welcome', 'app'))
 		
 	preset.editNodePackages()
-		.add('vue', '^3.0.5')
-		.addDev('@vue/compiler-sfc', '^3.0.5')
-		.addDev('@vitejs/plugin-vue', '^1.1.4')
+		.add('vue', '^3.1.4')
+		.addDev('@vue/compiler-sfc', '^3.1.4')
+		.addDev('@vitejs/plugin-vue', '^1.2.4')
 }).ifOption('vue').withTitle('Installing Vue...')
 
 Preset.editPhpPackages()
-	.add('innocenzi/laravel-vite', '^0.1.1')
+	.add('innocenzi/laravel-vite', '^0.1.4')
 	.withTitle('Updating composer.json...');
 
 Preset.installDependencies('php')
