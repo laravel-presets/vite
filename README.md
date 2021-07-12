@@ -23,7 +23,7 @@
   </a>
   <br />
   <br />
-  <pre align="center">npx apply laravel:vite</pre>
+  <pre><div align="center">npx apply laravel:vite</div></pre>
 </p>
 <br />
 
