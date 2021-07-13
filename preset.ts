@@ -25,7 +25,7 @@ Preset.group(preset => {
 	preset.editNodePackages()
 		.remove('laravel-mix')
 		.addDev('vite', '^2.4.1')
-		.addDev('laravel-vite', '^0.0.10')
+		.addDev('laravel-vite', '^0.0.11')
 		.delete(() => ['development', 'watch', 'watch-poll', 'hot', 'prod', 'production'].map(command => `scripts.${command}`))
 
 	preset.editNodePackages()
