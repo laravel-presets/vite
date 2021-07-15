@@ -1,7 +1,6 @@
 import { Preset, color } from 'apply';
 
 Preset.setName('laravel-vite');
-Preset.option('install', false);
 Preset.option('vue', true);
 
 Preset.extract('default');
@@ -58,11 +57,11 @@ Preset.editPhpPackages()
 	.withTitle('Updating composer.json...');
 
 Preset.installDependencies('php')
-	.ifOption('install')
+	.ifUserApproves()
 	.withTitle('Updating PHP dependencies...');
 
 Preset.installDependencies('node')
-	.ifOption('install')
+	.ifUserApproves()
 	.withTitle('Updating Node dependencies...');
 
 Preset.instruct([
