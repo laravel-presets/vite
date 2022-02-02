@@ -49,7 +49,7 @@ async function installVite(https: boolean) {
 	await installPackages({
 		title: 'install PHP dependencies',
 		for: 'php',
-		install: ['innocenzi/laravel-vite:0.2.*', 'inertiajs/inertia-laravel'],
+		install: ['innocenzi/laravel-vite:0.2.*'],
 	})
 
 	await group({
