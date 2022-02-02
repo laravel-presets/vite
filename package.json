@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "author": "Enzo Innocenzi <enzo@innocenzi.dev>",
+  "license": "MIT",
+  "preset": "preset.ts",
+  "devDependencies": {
+    "@preset/core": "^0.5.3",
+    "@types/node": "^17.0.14"
+  }
+}
