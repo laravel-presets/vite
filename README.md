@@ -14,7 +14,7 @@
 <div align="center">
   This preset installs <a href="https://vitejs.dev">Vite</a> and <a href="https://tailwindcss.com">Tailwind CSS</a> in a fresh Laravel application.
   <br />
-  Want more? Try the <a href="https://github.com/laravel-presets/inerti">Inertia preset</a>.
+  Want more? Try the <a href="https://github.com/laravel-presets/inertia">Inertia preset</a>.
   <br />
   <br />
   <a href="https://laravel-vite.dev">Documentation</a>
