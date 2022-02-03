@@ -128,6 +128,7 @@ async function installTailwind() {
 				files: 'config/vite.php',
 				operations: [
 					{
+						skipIf: (content) => content.includes("'resources/css/tailwind.css'"),
 						type: 'add-line',
 						match: /resources\/scripts\/main.ts/,
 						lines: "'resources/css/tailwind.css',",
