@@ -132,7 +132,7 @@ async function installTailwind() {
 						type: 'add-line',
 						match: /resources\/scripts\/main.ts/,
 						lines: "'resources/css/tailwind.css',",
-						position: 'after',
+						position: 'before',
 					},
 				],
 			})
