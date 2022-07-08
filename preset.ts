@@ -62,7 +62,7 @@ async function installVite(https: boolean) {
 
 			await deletePaths({
 				title: 'remove some default files',
-				paths: ['resources/js', 'resources/css', 'webpack.mix.js'],
+				paths: ['resources/js', 'resources/css', 'webpack.mix.js', 'vite.config.js'],
 			})
 
 			await editFiles({
